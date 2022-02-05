@@ -1,0 +1,7 @@
+- id: simple-commit-message-format
+  name: simple-commit-message-format
+  description: "Validates commit message format"
+  entry: main.sh
+  language: script
+  always_run: true
+  stages: [commit-msg]
