@@ -3,7 +3,7 @@
 here=$(dirname "$0")
 
 # shellcheck disable=SC1090
-. "$here/push-commit-format.sh"
+. "$here/push-validate.sh"
 
 failures=0
 local_sha="$PRE_COMMIT_TO_REF"

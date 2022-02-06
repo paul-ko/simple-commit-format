@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # shellcheck disable=SC1091
-. ./simple-commit-format.sh
+. ./commit-validate.sh
 
 declare -a _test_failures
 _green=$(tput setaf 2)
