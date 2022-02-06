@@ -24,8 +24,6 @@ validate_commit_message_format() {
         # * More than 50 characters
         # * Fewer than 2 words
         # * Ends with a period
-        # First line validation warns on
-        # * Doesn't start with a capital letter
         if [[ $line_no -eq 1 ]]; then
             if echo "$line" | grep -q '.*\.$'; then
                 print_failure "$commit_sha" "Line $line_no ends with a period."
