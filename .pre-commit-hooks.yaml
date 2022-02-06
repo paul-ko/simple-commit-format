@@ -1,7 +1,15 @@
-- id: simple-commit-message-format
-  name: simple-commit-message-format
+- id: check-msg-format-on-push
+  name: validate-commit-messages
   description: "Validates commit message format"
-  entry: main.sh
+  entry: push-main.sh
+  language: script
+  always_run: true
+  stages: [push]
+
+- id: check-msg-format-on-commit
+  name: validate-commit-messages
+  description: "Validates commit message format"
+  entry: commit-main.sh
   language: script
   always_run: true
   stages: [commit-msg]
