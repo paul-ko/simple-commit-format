@@ -73,11 +73,10 @@ validate_commit_msg_file() {
     fi
     if [[ $failed -ne 0 ]]; then
         full_msg=$(cat "$1")
-        printf "Commit message rejected due to validation failures. Original message:\n\n%s\n\n" "$full_msg" 1>&2
+        printf "Commit message rejected due to validation failures. " 1>&2
+        printf "Original message:\n----------\n%s\n----------\n\n" "$full_msg" 1>&2
     elif [[ $warned -ne 0 ]]; then
         printf "Consider amending.\n" 1>&2
-    else
-        printf "Nice commit message.\n" 1>&2
     fi
     echo "$failed"
 }
