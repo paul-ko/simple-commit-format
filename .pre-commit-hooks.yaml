@@ -5,11 +5,3 @@
   language: script
   always_run: true
   stages: [push]
-
-- id: check-msg-format-on-commit
-  name: validate-commit-messages
-  description: "Validates commit message format"
-  entry: commit-main.sh
-  language: script
-  always_run: true
-  stages: [commit-msg]

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # shellcheck disable=SC1091
-. ./commit-validate.sh
+. ./push-validate.sh
 
 declare -a _test_failures
 _green=$(tput setaf 2)
@@ -26,8 +26,9 @@ run_test() {
     # We don't have odd characters in our test filenames, so we can
     # use a simple for-loop instead find -print 0 | xargs -0 fun.
     for f in $file_glob; do
+        message=$(cat $f)
         printf "\n%s> Running %s%s\n" "$_green" "$f" "$_normal"
-        ret_val=$(validate_commit_msg_file "$f")
+        ret_val=$(validate_commit_message_format "$message" "$dummy_sha")
         if [[ $ret_val -ne $expected_exit_code ]]; then
             msg="Got unexpected status code $ret_val on ${f}"
             printf "%s\n" "$msg"
@@ -38,7 +39,7 @@ run_test() {
     done
 }
 
-for val in fail warn pass; do
+for val in fail pass; do
     run_test "$val"
 done
 
