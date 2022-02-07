@@ -27,7 +27,7 @@ The validation rules are based on longstanding best practices.
 Add this to your .pre-commit-commit.yaml:
 ```
   - repo: https://github.com/paul-ko/simple-commit-message-format
-    rev: "v1.1.1"
+    rev: "v1.2.0"
     hooks:
       - id: check-msg-format-on-push
         stages: [push]
