@@ -90,6 +90,7 @@ validate_commit_message_format() {
         # * More than 72 characters
         else
             new_failed=$(validate_body_line "$line" "$commit_sha" "$line_no")
+            failed=$(( new_failed + failed ))
         fi
     done <<< "$message"
     if [[ $failed -eq 0 ]]; then
